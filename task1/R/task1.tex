@@ -1,0 +1,438 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Assignment 1},
+  pdfauthor={Lúa Arconada \& Alejandro Macías},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Assignment 1}
+\author{Lúa Arconada \& Alejandro Macías}
+\date{14/12/2023}
+
+\begin{document}
+\maketitle
+
+\hypertarget{assignment-1}{%
+\section{Assignment 1}\label{assignment-1}}
+
+Before doing anything, we have to load our created package with all our
+functions to be able to use them to show that they work and do what they
+have to do.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(myknn)}
+\FunctionTok{library}\NormalTok{(Rcpp)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exercise-1}{%
+\subsection{Exercise 1}\label{exercise-1}}
+
+In this exercise, we have to write in C++ language a function called
+`my\_knn\_c', the already coded KNN algorithm in R language called
+`my\_knn\_R'. We will compile it using sourceCpp, which we do by loading
+library(Rcpp) and, then, writing cppFunction(`my\_knn\_c' in the C++
+language).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cppFunction}\NormalTok{(}\StringTok{\textquotesingle{}}
+\StringTok{int my\_knn\_c ( NumericMatrix X, NumericVector X0, NumericVector y)\{}
+\StringTok{  // X data matrix with input attributes}
+\StringTok{  // y response variable values of instances in X  }
+\StringTok{  // X0 vector of input attributes for prediction (just one instance)}
+\StringTok{  int nrows=X.nrow();}
+\StringTok{  int ncols=X.ncol();}
+\StringTok{  double distance=0;}
+\StringTok{  int j;}
+\StringTok{  double difference;}
+\StringTok{  for (j=0;j\textless{}ncols;j++)\{}
+\StringTok{    difference = X(1,j){-}X0[j];}
+\StringTok{    distance+=difference*difference;}
+\StringTok{  \}}
+\StringTok{  distance = sqrt(distance);}
+\StringTok{  double closest\_distance=distance;}
+\StringTok{  double closest\_output = y[1];}
+\StringTok{  int closest\_neighbor=1;}
+\StringTok{  for (int i=1;i\textless{}nrows;i++)\{}
+\StringTok{    distance=0;}
+\StringTok{    for (int j=0;j\textless{}ncols;j++)\{}
+\StringTok{      difference = X(i,j){-}X0[j];}
+\StringTok{      distance+= difference*difference;}
+\StringTok{    \}}
+\StringTok{    distance=sqrt(distance);}
+\StringTok{    if (distance\textless{}closest\_distance)\{}
+\StringTok{      closest\_distance = distance;}
+\StringTok{      closest\_output = y[i];}
+\StringTok{      closest\_neighbor = i;}
+\StringTok{    \}}
+\StringTok{  \}}
+\StringTok{  return closest\_output;}
+\StringTok{\}}
+\StringTok{\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This function has three arguments:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A data matrix X with input attributes.
+\item
+  A response vector y which contains the values of the response variable
+  of the instances of X.
+\item
+  A vector X0 of input attributes for prediction (just one instance).
+  Its output will be a number indicating the closest category, in other
+  words, the predicted category for our instance input X0.
+\end{enumerate}
+
+Firstly, through a loop, we calculate the distance between the first
+observation of the data in X and X0 and we create a variable `distance'
+which will be equal to the sum of the second power of these differences.
+After that, we compute its square root and we save the result in a
+variable called `closest\_distance'. We know that the first coordinate
+of the prediction vector y is the predicted category for the first
+observation of X and we save that prediction in another variable as
+`closest\_output'. Also, we keep track that this is (at the moment) the
+closest neighbour by saving the number of this observation in another
+variable called `closest\_neighbor'. So, at the moment,
+closest\_neighbor=1 and closest\_output=y{[}1{]} (first coordinate of
+vector y). However, we have to see if this is in fact the closest
+neighbour or if it is one of the other observations we have in X, so we
+will compare them one by one to this one.
+
+We implement another loop that will consider each of the rows of X from
+the second to the last one by one. The loop calculates the same distance
+as before for the row selected and it checks if that distance is smaller
+than the computed using the first row (stored in `closest\_distance').
+If that condition happens, then the value of `closest\_distance' will be
+updated to this new one, the value of `closest\_output' will be the
+coordinate of the vector y corresponding to the prediction of the row
+selected and the `closest\_neighbour' will be the number of the row used
+to compute the distance. Lastly, the function will return the value of
+the variable `closest\_neighbour', which will be the predicted category
+for our input X0.
+
+After coding this function, we are asked to check that we obtain the
+same results as with the function `knn' contained in library `class'.
+First, we get our input matrix X and vector y and X:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# X contains the inputs as a matrix of real numbers}
+\FunctionTok{data}\NormalTok{(}\StringTok{"iris"}\NormalTok{)}
+\CommentTok{\# X contains the input attributes (excluding the class which is the prediction)}
+\NormalTok{X }\OtherTok{\textless{}{-}}\NormalTok{ iris[,}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{]}
+\CommentTok{\# y contains the response variable, the prediction (named medv, a numeric value)}
+\NormalTok{y }\OtherTok{\textless{}{-}}\NormalTok{ iris[,}\DecValTok{5}\NormalTok{]}
+
+\CommentTok{\# From dataframe to matrix}
+\NormalTok{X }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(X)}
+\CommentTok{\# From factor to integer}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(y)}
+
+\CommentTok{\# This is the point we want to predict}
+\NormalTok{X0 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{5.80}\NormalTok{, }\FloatTok{3.00}\NormalTok{, }\FloatTok{4.35}\NormalTok{, }\FloatTok{1.30}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# We use my\_knn\_R, my\_knn\_c and class:knn to predict point X0; and to check that}
+\CommentTok{\# the results are the same to see if our function \textquotesingle{}my\_knn\_c\textquotesingle{} is right.}
+
+\FunctionTok{print}\NormalTok{(}\FunctionTok{my\_knn\_R}\NormalTok{(X, X0, y))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\FunctionTok{my\_knn\_c}\NormalTok{(X, X0, y))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(class)}
+\FunctionTok{print}\NormalTok{(class}\SpecialCharTok{::}\FunctionTok{knn}\NormalTok{(X, X0, y, }\AttributeTok{k=}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+## Levels: 1 2 3
+\end{verbatim}
+
+We have computed the prediction of X0's category using the given
+function `my\_knn\_R', our C++ function `my\_knn\_c' and the `knn'
+function in the class library. We can see that the three outcomes are
+the same, which is what we wanted.
+
+Finally, we are asked to use library `microbenchmark' to compare the
+time it takes each function to compute the prediction. We want to see if
+our C++ function is faster than either, none or both of the other two.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(microbenchmark)}
+\NormalTok{comparison}\OtherTok{=}\FunctionTok{microbenchmark}\NormalTok{(}\FunctionTok{my\_knn\_R}\NormalTok{(X,X0,y),}\FunctionTok{my\_knn\_c}\NormalTok{(X,X0,y),class}\SpecialCharTok{::}\FunctionTok{knn}\NormalTok{(X,X0,y))}
+\NormalTok{comparison}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Unit: microseconds
+##                  expr   min     lq     mean  median      uq    max neval cld
+##    my_knn_R(X, X0, y) 963.7 982.60 1191.783 1037.10 1214.10 3701.4   100 a  
+##    my_knn_c(X, X0, y)   3.1   3.65   19.652    5.85    8.15 1251.2   100  b 
+##  class::knn(X, X0, y)  81.8  91.80  131.237  101.55  141.25  578.1   100   c
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Microbenchmark creates a dataframe of 100 iterations of each function and it }
+\CommentTok{\#gives its time}
+\end{Highlighting}
+\end{Shaded}
+
+We can see in the mean column, that the C++ function is much faster that
+the other two.
+
+\hypertarget{exercise-2}{%
+\subsection{Exercise 2}\label{exercise-2}}
+
+Now we are asked to write a C++ function that computes the Euclidean
+distance and implement it in our main function, which we will call
+`my\_knn\_c\_euclidean'.
+
+Our function `euclidean' takes two vectors x and y and computes the
+square of the sum of the power of their difference (which is the
+Euclidean distance of x and y).
+
+Then, our function `my\_knn\_c\_euclidean' does exactly the same as
+`my\_knn\_R' and `my\_knn\_c', but the difference is the way it computes
+de distance: `my\_knn\_c\_euclidean', makes use of a previously
+implemented function to compute the Euclidean distance within its loop.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{my\_knn\_c\_euclidean}\NormalTok{(X,X0,y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+We can see that it predicts the same category for our X0 as the
+functions in Exercise 1.
+
+\hypertarget{exercise-3}{%
+\subsection{Exercise 3}\label{exercise-3}}
+
+This exercise is like the previous one, but in this one we first have to
+code a function that computes the Minkowsky distance and then, the main
+function `my\_knn\_c\_minkowsky' will implement it.
+
+Our function `minkowsky' takes an extra argument p (it still needs X, X0
+and y). If p is negative or zero, then the Minkowsky distance is
+computed as the maximum of the absolute values of the difference (which
+is the L\_infinity distance). However, if p\textgreater0, then the
+distance is computed as the 1/p power of the sum of the difference
+between x and y, each raised to the power of p.
+
+Moreover, our function `my\_knn\_c\_minkowsky' does, once again, the
+same as the function `my\_knn\_c' but takes one more argument p (the
+exponent) and computes the distance as the Minkowsky distance using our
+`minkowksy' function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{my\_knn\_c\_minkowsky}\NormalTok{(X,X0,y,}\AttributeTok{p=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+It should be noted that, in this example where \(p=5\) has been used,
+the function predicts a different label for X0.
+
+\hypertarget{exercise-4}{%
+\subsection{Exercise 4}\label{exercise-4}}
+
+In this last exercise, we are asked to write a function called
+`my\_knn\_tuningp' that instead of using a given p, it carries out
+hyper-parameter tuning of the Minkowsky exponent \(p\). We will do this
+by adding a new argument to the function, called `possible\_p', which is
+a vector of possible values of \(p\).
+
+Firstly, we will split the data X with 2/3-proportion for training and
+1/3-proportion for testing. To do so, we define four auxiliary
+functions. Two functions, `keepFirstTwoThirds' and `keepLastOneThird',
+will have a matrix X as the input and will give back matrices consisting
+of the first two thirds and the last third respectively (in terms of
+rows). The other two, `keepFirstTwoThirdsVector' and
+`keepLastOneThirdVector', will do the same but the inputs and outputs
+will be vectors.
+
+After doing this, we write our function which will go through all
+possible given values of \(p\). Then, it will compute the accuracy and
+choose the parameter corresponding to the highest accuracy. And,
+finally, it will make a prediction using this chosen \(p\). Now, we are
+going to describe in more detail what this function does.
+
+First of all, it creates two variables called `best' and `best\_p' to
+keep track of the best accuracy and the corresponding p and it uses our
+four additional previously defined functions to split X and y in
+train-test. Then, it takes a possible value of \(p\) from the input
+vector that contains them and uses our function `my\_knn\_c\_minkowsky'
+to obtain the prediction and if it is equal to the true value stored in
+y. Then, we add one to a counter we call `right' which keeps track of
+the accurate predictions. Afterwards, we calculate the accuracy of that
+\(p\) as the number of right predictions (counter `rights') divided by
+the total number of observations we have predicted. In addition, we
+check if the accuracy with this \(p\) is bigger than the one stored in
+the variable `best', and if it is, we save that exponent as the best yet
+in our variable `best\_p'.
+
+We do all this work with a \(p\) inside a loop that goes through all the
+values of the input vector that contains all its possible values. We are
+checking if each value has a bigger accuracy than the previous \(p\) and
+only if it is we update the variable `best\_p' to that better \(p\). And
+lastly, we ask our function to tell us what the best value of p
+(`best\_p') was and to compute the knn prediction using the Minkowsky
+distance and that \(p\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{my\_knn\_tuningp}\NormalTok{(X,X0,y,}\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{0.2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The best value for p is:0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+Lastly, we can see that it makes the same prediction for X0 as all our
+previous functions (except `my\_knn\_c\_minkowsky' for \(p=5\)), and the
+best \(p=0\).
+
+\end{document}
